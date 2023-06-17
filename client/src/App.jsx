@@ -9,6 +9,7 @@ import DevPage from "./pages/DevPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SignUp from "./minipages/Signup";
+import Projects from "./pages/projects";
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -25,9 +26,9 @@ const App = () => {
             !user ? (
               <Home />
             ) : user.role === "admin" ? (
-              <Navigate to="/ClientPage" />
+              <ClientPage />
             ) : (
-              <Navigate to="/DevPage" />
+              <DevPage />
             )
           }
         />
@@ -39,9 +40,9 @@ const App = () => {
             !user ? (
               <Login />
             ) : user.role === "admin" ? (
-              <Navigate to="/ClientPage" />
+              <ClientPage />
             ) : (
-              <Navigate to="/DevPage" />
+              <DevPage />
             )
           }
         />
@@ -53,9 +54,9 @@ const App = () => {
             !user ? (
               <Register />
             ) : user.role === "admin" ? (
-              <Navigate to="/ClientPage" />
+              <ClientPage />
             ) : (
-              <Navigate to="/DevPage" />
+              <DevPage />
             )
           }
         />
@@ -64,7 +65,7 @@ const App = () => {
         <Route
           path="/Register/SignUp"
           element={
-            user !== null ? (
+            user ? (
               <Navigate
                 to={user.role === "admin" ? "/ClientPage" : "/DevPage"}
               />
@@ -80,8 +81,6 @@ const App = () => {
           element={
             user && user.role === "developer" ? (
               <DevPage />
-            ) : user && user.role === "admin" ? (
-              <Navigate to="/ClientPage" />
             ) : (
               <Navigate to="/" />
             )
@@ -92,10 +91,16 @@ const App = () => {
         <Route
           path="/ClientPage"
           element={
-            user && user.role === "admin" ? (
-              <ClientPage />
-            ) : user && user.role === "developer" ? (
-              <Navigate to="/DevPage" />
+            user && user.role === "admin" ? <ClientPage /> : <Navigate to="/" />
+          }
+        />
+
+        {/* Projects */}
+        <Route
+          path="/projects/:projectId"
+          element={
+            user && user.role === "developer" ? (
+              <Projects />
             ) : (
               <Navigate to="/" />
             )

@@ -89,7 +89,7 @@ userSchema.statics.login = async function (email, password) {
   // Include username and role in the returned user object
   return {
     email: user.email,
-    username: user.username,
+    userName: user.userName,
     role: user.role,
     _id : user._id
   };

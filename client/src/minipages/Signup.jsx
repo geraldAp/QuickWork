@@ -3,7 +3,7 @@ import { useSignUp } from "../hooks/UseSignup";
 import { UtilContext } from "../context/utilContext";
 
 const SignUp = () => {
-  const { signUp: type, setSignUp: setType } = useContext(UtilContext);
+  const { signUp: role, setSignUp: setRole } = useContext(UtilContext);
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +11,7 @@ const SignUp = () => {
 
 // to prevent the component from fooling when reloaded 
 useEffect(()=>{
-setType("admin")
+setRole("admin")
 },[])
 
 
@@ -19,7 +19,7 @@ setType("admin")
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(username, email, password, type);
+    await signup(username, email, password, role);
   };
 
   return (
@@ -27,15 +27,15 @@ setType("admin")
          {/* form type getter/Setter basically the type of form that would appear to you */}
      
      <div className=" text-right mr-7 mb-4 ">
-     <p className={` text-sm ${type === "admin" ? "block" : "hidden"}`}>
+     <p className={` text-sm ${role === "admin" ? "block" : "hidden"}`}>
         Looking for Gigs?{" "}
-        <span onClick={()=> setType('developer')} className="text-blue-800 underline cursor-pointer ">
+        <span onClick={()=> setRole('developer')} className="text-blue-800 underline cursor-pointer ">
           Register as Developer
         </span>{" "}
       </p>
-      <p className={`text-sm ${type === "developer" ? "block" : "hidden"}`}>
+      <p className={`text-sm ${role === "developer" ? "block" : "hidden"}`}>
         Looking to get developers on your project?{" "}
-        <span onClick={()=> setType('admin')}  className="text-blue-800 underline cursor-pointer  ">
+        <span onClick={()=> setRole('admin')}  className="text-blue-800 underline cursor-pointer  ">
           Register as Client
         </span>
       </p>
@@ -48,7 +48,7 @@ setType("admin")
           onSubmit={handleSubmit}
         >
        {/* manipulated form heading depending on type  */}
-          {type === "admin" ? (
+          {role === "admin" ? (
             <h3 className="text-center text-gray-500 mb-4">Client Sign Up</h3>
           ) : (
             <h3 className="text-center text-gray-500 mb-4">
@@ -86,13 +86,13 @@ setType("admin")
               className="bg-green-600 hover:bg-transparent hover:border-green-600 hover:text-green-600 transition duration-300 ease-in-out outline-none focus:outline-none border-2 border-green-600 text-white font-bold py-2 px-4 rounded mt-4"
             >
               <span
-                className={` text-sm ${type === "admin" ? "block" : "hidden"}`}
+                className={` text-sm ${role === "admin" ? "block" : "hidden"}`}
               >
                 Sign up as Client
               </span>
               <span
                 className={` text-sm ${
-                  type === "developer" ? "block" : "hidden"
+                  role === "developer" ? "block" : "hidden"
                 }`}
               >
                 Sign up as Developer
