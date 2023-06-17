@@ -9,7 +9,8 @@ import DevPage from "./pages/DevPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SignUp from "./minipages/Signup";
-import Projects from "./pages/projects";
+import Projects from "./pages/ProjectsPage";
+
 
 const App = () => {
   const { user } = useContext(AuthContext);
