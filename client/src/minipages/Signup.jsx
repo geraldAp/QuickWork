@@ -9,12 +9,12 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const { signup, error, isLoading } = useSignUp();
 
-// to prevent the component from fooling when reloaded 
-useEffect(()=>{
-setRole("admin")
-},[])
-
-
+  // to prevent the component from fooling when reloaded
+  useEffect(() => {
+    if (!role) {
+      setRole("admin");
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,30 +24,35 @@ setRole("admin")
 
   return (
     <section className="mt-24">
-         {/* form type getter/Setter basically the type of form that would appear to you */}
-     
-     <div className=" text-right mr-7 mb-4 ">
-     <p className={` text-sm ${role === "admin" ? "block" : "hidden"}`}>
-        Looking for Gigs?{" "}
-        <span onClick={()=> setRole('developer')} className="text-blue-800 underline cursor-pointer ">
-          Register as Developer
-        </span>{" "}
-      </p>
-      <p className={`text-sm ${role === "developer" ? "block" : "hidden"}`}>
-        Looking to get developers on your project?{" "}
-        <span onClick={()=> setRole('admin')}  className="text-blue-800 underline cursor-pointer  ">
-          Register as Client
-        </span>
-      </p>
+      {/* form type getter/Setter basically the type of form that would appear to you */}
 
-     </div>
-   
+      <div className=" text-right mr-7 mb-4 ">
+        <p className={` text-sm ${role === "admin" ? "block" : "hidden"}`}>
+          Looking for Gigs?{" "}
+          <span
+            onClick={() => setRole("developer")}
+            className="text-blue-800 underline cursor-pointer "
+          >
+            Register as Developer
+          </span>{" "}
+        </p>
+        <p className={`text-sm ${role === "developer" ? "block" : "hidden"}`}>
+          Looking to get developers on your project?{" "}
+          <span
+            onClick={() => setRole("admin")}
+            className="text-blue-800 underline cursor-pointer  "
+          >
+            Register as Client
+          </span>
+        </p>
+      </div>
+
       <div className=" flex justify-center">
         <form
-          className="w-2/5 p-4 shadow-sm border rounded-md"
+          className=" w-4/5 md:w-2/5 p-4 shadow-sm border rounded-md"
           onSubmit={handleSubmit}
         >
-       {/* manipulated form heading depending on type  */}
+          {/* manipulated form heading depending on type  */}
           {role === "admin" ? (
             <h3 className="text-center text-gray-500 mb-4">Client Sign Up</h3>
           ) : (

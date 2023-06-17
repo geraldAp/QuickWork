@@ -13,11 +13,11 @@ const Button = ({ signUp }) => {
             Register
           </button>
         ) : signUp === "admin" ? (
-          <button className="rounded-full bg-green-600 text-white px-16 hover:opacity-70  py-2">
+          <button className="rounded-full bg-green-600 text-white px-5 md:px-16  hover:opacity-70  py-2">
             Register as client
           </button>
         ) : (
-          <button className="rounded-full bg-green-600 text-white px-16 hover:opacity-70 py-2">
+          <button className="rounded-full bg-green-600 text-white px-5 md:px-16 hover:opacity-70 py-2">
             Register as Developer{" "}
           </button>
         )}

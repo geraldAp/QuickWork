@@ -34,7 +34,7 @@ const Login = () => {
     <div className="mt-40 flex justify-center">
      
       <form
-        className="w-2/5 p-4 shadow-sm border rounded-md"
+        className=" w-4/5 md:w-2/5 p-4 shadow-sm border rounded-md"
         onSubmit={handleSubmit}
       >
         <h3 className="text-center text-gray-500 mb-4">Log In</h3>
