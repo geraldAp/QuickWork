@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ProjectsContext } from "../context/ProjectContext";
 import axios from "axios";
-import DevPageDetails from "../components/devPageDetails";
+import DevPageDetails from "../components/DevPgeDetails";
 import { Url } from "../components/minidb/Url";
 
 const DevPage = () => {
