@@ -1,6 +1,7 @@
 import React,{useContext} from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ProjectsContext } from "../context/ProjectContext";
+import { Url } from "./minidb/Url";
 // date fns
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
@@ -13,7 +14,7 @@ const ClientProjectDetails = ({ project }) => {
     
 
         // 'http://localhost:4000/api/workouts/' + workout._id
-        const response = await fetch(`http://localhost:4000/api/projects/${project._id}`, {
+        const response = await fetch(`${Url}/api/projects/${project._id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${user.token}`

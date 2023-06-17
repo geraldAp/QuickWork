@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { ProjectsContext } from "../context/ProjectContext";
 import ClientProjectDetails from "../components/ClientProjectDetails";
 import PostingForm from "../components/PostingForm";
+import { Url } from "../components/minidb/Url";
 
 const ClientPage = () => {
   const { projects, dispatch } = useContext(ProjectsContext);
@@ -10,7 +11,7 @@ const ClientPage = () => {
 
   useEffect(() => {
     const fetchClientProjects = async () => {
-      const response = await fetch("http://localhost:4000/api/projects/admin", {
+      const response = await fetch(`${Url}/api/projects/admin`, {
         //  sending the authorization headers
         headers: {
           // in here we need an authorization key

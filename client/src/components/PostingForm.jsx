@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ProjectsContext } from "../context/ProjectContext";
+import { Url } from "./minidb/Url";
 
-import React from "react";
 
 const PostingForm = () => {
   const {user} = useContext(AuthContext)
@@ -25,7 +25,7 @@ const PostingForm = () => {
 
     const project = { title, description, devSpec, details, budget };
     console.log(project);
-    const response = await fetch("http://localhost:4000/api/projects", {
+    const response = await fetch(`${Url}/api/projects`, {
       method: "POST",
       body: JSON.stringify(project),
         headers: {

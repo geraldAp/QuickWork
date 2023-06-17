@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-
+import { Url } from "../components/minidb/Url";
 import { useParams } from "react-router-dom";
 
 const Projects = () => {
@@ -17,7 +17,7 @@ const Projects = () => {
       const handleProjectList = async () => {
         const options = {
           method: "GET",
-          url: `http://localhost:4000/api/projects/${projectId}`,
+          url: `${Url}/api/projects/${projectId}`,
           // params: { id: projectId },
           headers: {
             Authorization: `Bearer ${user.token}`,

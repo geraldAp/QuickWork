@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { ProjectsContext } from "../context/ProjectContext";
 import axios from "axios";
 import DevPageDetails from "../components/devPageDetails";
+import { Url } from "../components/minidb/Url";
 
 const DevPage = () => {
   const { projects, dispatch } = useContext(ProjectsContext);
@@ -11,7 +12,7 @@ const DevPage = () => {
   useEffect(() => {
     try {
       const fetchProjects = async () => {
-        const response = await axios.get("http://localhost:4000/api/projects", {
+        const response = await axios.get(`${Url}/api/projects`, {
           // sending the authorization headers
           headers: {
             // in here we need an authorization key
