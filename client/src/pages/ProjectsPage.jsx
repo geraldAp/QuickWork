@@ -44,7 +44,7 @@ const Projects = () => {
         <div>
           <div className="grid grid-cols-4 gap-5 px-[5%]">
             {/* project info */}
-            <div className="col-span-2">
+            <div className=" col-span-3 md:col-span-2">
               {project ? (
                 <>
                   <div className="border rounded-lg grid gap-1 p-4 shadow-sm">

@@ -9,7 +9,7 @@ const Register = () => {
 
   return (
     <div className=" my-24 md:mt-14 md:h-screen w-[80%] m-auto flex justify-center items-center">
-      <div className="w-[80%] m-auto p-10 border rounded-lg  md:h-[80%] ">
+      <div className="w-[80%] m-auto p-5 md:p-10 border rounded-lg  md:h-[80%] ">
         <h1 className=" text-center   font-bold text-xl md:text-2xl ">
           Join as a Client or a Developer{" "}
         </h1>
